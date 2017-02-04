@@ -1,23 +1,25 @@
 # mongodb-sandbox
 Sandbox for mongodb
 
-sudo service mongod start
+## Requirements
+MongoDB Installed
 
-sudo service mongod stop
+## Usage
+`sudo service mongod start` - to start mongodb
 
-sudo service mongod restart
+`sudo service mongod stop` - to start mongodb
 
-mongo
+`sudo service mongod restart` - to restart mongodb
 
-help
+`mongo` - to connect to mongodb
 
-show dbs
+`show dbs` - show the databases
 
-show collections
+`show collections` - show the collections
 
-db.alunos.find()
+`db.collection.find()` - to find everything from some collection
 
-db.alunos.find().pretty()
+`db.collection.find().pretty()` - to find everything from some collection and show it is a pretty way
 
 db.alunos.find({
   nome: "Felipe"
