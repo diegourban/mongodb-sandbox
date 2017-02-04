@@ -11,9 +11,9 @@ MongoDB Installed
 
 `sudo service mongod restart` - to restart mongodb
 
-`mongoimport --db test --collection alunos --file alunos.json` - to import the collection alunos to test db from alunos.json
+`mongoimport --db example --collection example --file file.json` - to import some collection to some database from some file
 
-`mongoexport --db test --collection alunos --out alunos.json` - to export the collection alunos from test db to alunos.json file
+`mongoexport --db example --collection example --out file.json` - to export some collection from some database to some file
 
 `mongo` - to connect to mongodb
 
@@ -27,54 +27,55 @@ MongoDB Installed
 
 `db.collection.find().pretty()` - to find everything from some collection and show it is a pretty way
 
+## Specific alunos collection commands
 
-db.alunos.find({
+`db.alunos.find({
   nome: "Felipe"
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   nome : "Felipe",
   data_nascimento: new Date(1994, 02, 26)
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   curso.nome: "Sistemas de informação"
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   nome : "Felipe",
   curso.nome: "Sistemas de informação"
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   "habilidades.nome" : "inglês"
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   $or : [
     {"curso.nome" : "Sistemas de informação"},
     {"curso.nome" : "Engenharia Química"}
   ]
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   $or : [
     {"curso.nome" : "Sistemas de informação"},
     {"curso.nome" : "Engenharia Química"}
   ],
   "nome" : "Daniela"
-})
+})`
 
 
-db.alunos.find({
+`db.alunos.find({
   "curso.nome" : {
     $in : ["Sistemas de informação", "Engenharia Química"]
   }
-})
+})`
 
