@@ -11,11 +11,15 @@ MongoDB Installed
 
 `sudo service mongod restart` - to restart mongodb
 
+`mongoimport --db test --collection alunos --file alunos.json` - to import the collection alunos to test db from alunos.json
+
 `mongoexport --db test --collection alunos --out alunos.json` - to export the collection alunos from test db to alunos.json file
 
 `mongo` - to connect to mongodb
 
 `show dbs` - show the databases
+
+`use test` - to use the test database
 
 `show collections` - show the collections
 
