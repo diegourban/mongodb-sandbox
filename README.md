@@ -11,6 +11,8 @@ MongoDB Installed
 
 `sudo service mongod restart` - to restart mongodb
 
+`mongoexport --db test --collection alunos --out alunos.json` - to export the collection alunos from test db to alunos.json file
+
 `mongo` - to connect to mongodb
 
 `show dbs` - show the databases
@@ -20,6 +22,7 @@ MongoDB Installed
 `db.collection.find()` - to find everything from some collection
 
 `db.collection.find().pretty()` - to find everything from some collection and show it is a pretty way
+
 
 db.alunos.find({
   nome: "Felipe"
