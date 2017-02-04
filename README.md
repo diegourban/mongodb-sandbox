@@ -79,3 +79,51 @@ MongoDB Installed
   }
 })`
 
+
+`db.alunos.update(
+  {"_id": ObjectId("1234565435")},
+  {"nome" : "Toma cuidado"}
+)` - will update all the data from the first occurence
+
+
+`db.alunos.update(
+  {"curso.nome" : "Sistema de informação"},
+  { $set : 
+    {"curso.nome" : "Sistemas de informação"}
+  }
+)` - will set the curso.nome from the first occurence
+
+
+`db.alunos.update(
+  {"curso.nome" : "Sistema de informação"},
+  { $set : 
+    {"curso.nome" : "Sistemas de informação"}
+  }, {
+    multi : true
+  }
+)` - to set the curso.nome from all occurences
+
+
+`db.alunos.update(
+  {"_id": ObjectId("1234565435")},
+  { $push : 
+    {notas : 8.5}
+  }
+)` - to add an element to notas array
+
+
+`db.alunos.update(
+  {"_id" : ObjectId("76a78d876bc6c867q6")},
+  { $push : 
+    {notas : [8.5, 3]}
+  }
+)` - to insert an array inside notas array
+
+
+`db.alunos.update(
+  {"_id" : ObjectId("76a78d876bc6c867q6")},
+  { $push : 
+    {notas : {$each : [8.5, 3]}}
+  }
+)` - to insert each element from the array to notas array
+
