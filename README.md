@@ -127,3 +127,15 @@ MongoDB Installed
   }
 )` - to insert each element from the array to notas array
 
+`db.alunos.find({notas:{$gt : 2}})` - find someone with notas greater than 2
+
+`db.alunos.findOne({notas:{$gt : 5}})` - find only one
+
+`db.alunos.find().sort({"nome" : 1})` - find and sort the elements in asc(1) order
+
+`db.alunos.find().sort({"nome" : -1})` - find and sort the elements in desc(-1) order
+
+`db.alunos.find().sort({"nome" : 1}).limit(3)` - find and sort the elements in asc(1) order limited to three results
+
+
+
