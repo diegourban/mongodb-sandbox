@@ -138,4 +138,45 @@ MongoDB Installed
 `db.alunos.find().sort({"nome" : 1}).limit(3)` - find and sort the elements in asc(1) order limited to three results
 
 
+db.alunos.update(
+{"_id" : ObjectId("58924e3c163ef267ac082f57")},
+{
+  $set : {
+    localizacao : {
+      endereco : "Rua Vergueiro, 3185",
+      cidade : "São Paulo",
+      coordinates: [-23.588213, -46.632356],
+      type : "Point"
+    }
+  }
+}
+)
+
+mongoimport --db test --collection alunos --jsonArray --file alunos_end.json
+
+
+db.alunos.createIndex({
+  localizacao : "2dsphere"
+})
+
+
+db.alunos.aggregate([
+  {
+    $geoNear : {
+      near : {
+        coordinates : [-24.5640265, -46.6527128],
+        type : "Point"
+      },
+      distanceField : "distancia.calculada",
+      spherical : true,
+      num : 4
+    }
+  },
+  { $skip : 1 }
+])
+
+
+
+
+
 
